@@ -1,22 +1,25 @@
+/*----Font & Base Variables----*/
 @font-face{
   font-family: "DMSans";
   src: url("assets/fonts/DMSans-VariableFont_opsz-wght.ttf");
   font-style: normal;
   font-display: swap;
 }
-
 :root{
+  /*----Typography----*/
   --font: "DMSans", sans-serif;
 
+  /*----Colors----*/
   --purple-100: hsl(254, 88%, 90%);
   --purple-500: hsl(256, 67%, 59%);
   --yellow-100: hsl(31, 66%, 93%);
   --yellow-500: hsl(39, 100%, 71%);
   --white : hsl(0, 0%, 100%);
   --black : hsl(0, 0%, 7%);
-  --bg:hsl(0, 0%, 96%)
+  --bg:hsl(0, 0%, 96%);
 }
 
+/*----Reset & Global Style----*/
 *, *::after, *::before{
   margin: 0;
   padding:0;
@@ -46,6 +49,8 @@ body{
   font-family: var(--font);
   font-weight:300;
 }
+
+/*----Layout Grid----*/
 main{
   display: flex;
   justify-content: center;
@@ -57,18 +62,19 @@ main{
   grid-template-rows: auto;
   padding: 3rem 1rem;
   gap: 1.5rem;
-  grid-template-areas: 'column2' 'column3' 'column4' 'column1';  
+  grid-template-areas: 'col2' 'col3' 'col4' 'col1';  
 }
 .card{
   border-radius: .7rem;
 }
-
  .grid-container >*, .inside-item{
     display: grid;
     gap: 1.5rem;
 }
+
+/*----Individual sections*/
 .column-one{
-  grid-area: column1;
+  grid-area: col1;
 }
 .social{
   background-color: var(--purple-500);
@@ -185,24 +191,20 @@ main{
   padding-right: 0rem;
 }
 
-/*For Tablet-768px*/
+/*----Tablet View-768px----*/
 
 @media screen and (min-width:48rem){
   .grid-container{
     grid-template-columns: 2fr 1fr;
-    grid-template-areas: 'column2 column3' 'column2 column3' 'column4 column4' 'column1 column1';
+    grid-template-areas: 'col2 col3' 'col2 col3' 'col4 col4' 'col1 col1';
     max-width: 75rem;
   }
 
-  .grid-container >*, .inside-item{
-    display: grid;
-    gap: 1.5rem;
-  }
 h2{
   font-size: 1.8rem;
 }
   .column-one{
-    grid-area: column1;
+    grid-area: col1;
     grid-template-columns: 1fr 1fr; 
     grid-template-rows: 1fr;   
 
@@ -222,7 +224,7 @@ h2{
 }
 
 .column-two{
-  grid-area: column2; 
+  grid-area: col2; 
   place-content: center;
   place-items: center;
 }
@@ -239,60 +241,37 @@ h2{
   grid-template-rows: 15.75rem;
 }
 .manage{
-  position: relative;
   overflow: hidden;
 }
 .manage img{
-  position: absolute;
   max-width: 20rem;
 }
-.manage h2{
-  margin-block: 40%;
-}
-
-.maintain{
-  position: relative;  
-}
-
-.maintain h2{
-  position: relative;
-  margin-bottom: 0;
-}
-
 .maintain img{
-  position: absolute;
-  padding-right: 2rem;
+  padding-right: 0;
   margin-block:  8%;
 }
 
 .column-three{
-    grid-area: column3;
+    grid-area: col3;
 }
 .schedule{
   text-align: left;
-  position: relative;
+  place-content: center;
   overflow: hidden;
 }
 .schedule h2{
-  margin-left: 1rem;
-  padding-top: 1.8re;
-  margin-block: 12%;
+  margin-left: 1.5rem;
+  margin-block: 8%;
 }
 .schedule p{
-  position: absolute;
-  margin-block: 90%;
-  left: 2rem;
+  margin-left: 1.5rem;
 }
 .schedule img{
-  position: absolute;
-  left: 2.2rem;
-  top: 25%;
-  place-content: center;
-  place-items: center;  
+  margin-left: 3rem;  
 }
 
 .column-four{
-    grid-area: column4;
+    grid-area: col4;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 15.75rem;
   }
@@ -313,8 +292,6 @@ h2{
 }
 .growth img{
   grid-column: 1;
-  margin-bottom: ;
-
 }
 .growth h2{
   font-size: 2rem;
@@ -323,29 +300,29 @@ h2{
 }
 }
 
-/*For Desktop-1024px*/
+/*----Desktop View-1024px----*/
 
 @media screen and (min-width: 64rem){
   .grid-container{
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-areas: 'column1 column2 column3' 'column1 column2 column3' 'column1 column4 column4';
+    grid-template-areas: 'col1 col2 col3' 'col1 col2 col3' 'col1 col4 col4';
   }
 
   .column-one{
-    grid-area: column1;
+    grid-area: col1;
     grid-template-columns: 1fr;
   }
   .column-two{
-    grid-area: column2;
+    grid-area: col2;
   }
   .column-three{
-    grid-area: column3;
+    grid-area: col3;
   }
   .inside-item{
     grid-template-columns: 1fr 1fr;
   }
   .column-four{
-    grid-area: column4;
+    grid-area: col4;
     grid-template-columns: .95fr 2fr;
   }
 }
