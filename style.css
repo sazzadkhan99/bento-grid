@@ -47,6 +47,9 @@ h2{
 body{
   background-color: var(--bg);
   font-family: var(--font);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight:300;
 }
 
